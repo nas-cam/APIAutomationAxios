@@ -22,6 +22,7 @@
     "inflight": "^1.0.6",
     "inherits": "^2.0.4",
     "jasmine-core": "^4.6.0",
+    "lodash": "^4.17.21",
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "minimatch": "^3.1.2",
@@ -31,7 +32,7 @@
     "wrappy": "^1.0.2"
   },
   "scripts": {
-    "test": "jasmine"
+    "test": "npx jasmine ./API-Automation/test-suites/*/*.js"
   },
   "keywords": [],
   "author": "",

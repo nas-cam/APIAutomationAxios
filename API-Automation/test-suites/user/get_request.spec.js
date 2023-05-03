@@ -1,20 +1,24 @@
-import axiosInstance from '../../support/axiosConfig.js';
+import _ from "lodash";
+import { newUserData } from '../../data/commonData.js';
+import { getUserByUsername, userLogin, userLogout } from '../../tasks/api-tasks.js';
 
+describe('USER - GET API - positive test cases', () => {
+    it('TC_5_2 User is able to perform a search with username', async () => {
+        const response = await getUserByUsername();
+        expect(response.status).toBe(200);
+        expect(_.isEqual(response.data, newUserData));
 
-describe('GET API ', ()=> {
-    
-    it('get user by username', async() =>{
-        const response = await axiosInstance.get("user/Username2")
-        .then(response => {
-            console.log(response.data);
-           expect(response.data.id).toBe(2);
-          })
-          .catch(error => {
-            console.error(error);
-          });
-       
     });
 
+    it('TC_1_1 User is able to login with valid credentials', async () => {
+        const response = await userLogin();
+        expect(response.status).toBe(200)
+    });
 
-        
+    it('TC_2_1 User is able to logout from the system', async () => {
+        const response = await userLogout();
+        expect(response.status).toBe(200);
+    });
 });
+
+

@@ -1,15 +1,14 @@
-import axiosInstance from "../../support/axiosConfig.js";
-import { createUserPath, newUserData } from '../../data/commonData.js';
+import { createUser, createUserWithList } from "../../tasks/api-tasks.js";
 
-describe('POST API requests', () =>{
-    
-    it('ID_3_2 Create new user', async ()=> {
-        axiosInstance.post(createUserPath.path,newUserData)
-        .then(response=>{
-            console.log(response.data)
-            expect(response.data.code).toBe(200);
-            expect(response.data.id).toBe(newUserData.id);
-        })
-    });
-        
+describe("USER - POST API requests", () => {
+  it("TC_3_2 Create new user", async () => {
+    const response = await createUser();
+    expect(response.status).toBe(200);
+  });
+
+  it("TC_7_1 Create user with list", async () => {
+    const response = await createUserWithList();
+    expect(response.status).toBe(200);
+  });
 });
+
