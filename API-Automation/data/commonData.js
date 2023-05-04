@@ -74,7 +74,7 @@ export const updateUserData = {
 }
 
 export const deleteUserPath = {
-  "path": "user/Username3"
+  "path": "user/Username2"
   //this shouldn't be hardcoded, there has to be the way to add this differently
 }
 

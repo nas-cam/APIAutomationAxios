@@ -1,13 +1,26 @@
 import _ from "lodash";
 import { newUserData } from '../../data/commonData.js';
-import { getUserByUsername, userLogin, userLogout } from '../../tasks/api-tasks.js';
+import { getUserByUsername, userLogin, userLogout, createUser } from '../../tasks/api-tasks.js';
 
-describe('USER - GET API - positive test cases', () => {
+describe('User login/logout/search', () => {
+    let userId;
+
+    beforeEach(async () => {
+        const response = await createUser(newUserData)
+        userId = response.data.id;
+        return userId;
+    });
+
+    afterEach(async () => {
+        if (userId) {
+            await getUserByUsername()
+        }
+    });
+
     it('TC_5_2 User is able to perform a search with username', async () => {
         const response = await getUserByUsername();
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, newUserData));
-
     });
 
     it('TC_1_1 User is able to login with valid credentials', async () => {

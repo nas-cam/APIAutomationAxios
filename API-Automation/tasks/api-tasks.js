@@ -1,25 +1,24 @@
 import axiosInstance from "../support/axiosConfig.js";
 import {
   createUserPath,
-  createUserWithListData,
+ 
   createUserWithListPath,
   deleteUserInvalidUsernamePath,
   getUserPath,
-  newUserData,
-  updateUserData,
+ 
   userLoginPath,
   userLoginPathUsername,
   deleteUserPath,
   userLogoutPath,
   addNewPetPath,
-  newPetData,
+ 
   editPetPath,
-  editPetData,
+ 
   findByStatusPath,
   findPetByIdPath,
   deletePetPath,
   createOrderPath,
-  createOrderData,
+  
   getPurchaseByPetIdPath,
   getInventoryPath,
   deleteOrderByIdPath
@@ -27,281 +26,152 @@ import {
 
 export async function getUserByUsername() {
   try {
-    const response = await axiosInstance.get(getUserPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.get(getUserPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function createUser() {
+export async function createUser(newUserData) {
   try {
-    const response = await axiosInstance.post(createUserPath.path, newUserData);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.post(createUserPath.path, newUserData);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function createUserWithList() {
+export async function createUserWithList(createUserWithListData) {
   try {
-    const response = await axiosInstance.post(
+    return await axiosInstance.post(
       createUserWithListPath.path,
       createUserWithListData
     );
-    return {
-      status: response.status,
-      data: response.data
-    };
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function userLogin() {
   try {
-    const response = await axiosInstance.get(userLoginPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.get(userLoginPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function loginWithUsernameOnly() {
   try {
-    const response = await axiosInstance.userLogin(userLoginPathUsername.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.userLogin(userLoginPathUsername.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function deleteUserWithValidUsername() {
   try {
-    const response = await axiosInstance.delete(deleteUserPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    const response= await axiosInstance.delete(deleteUserPath.path);
+    return response;
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function deleteUserWithInvalidUsername() {
   try {
-    const response = await axiosInstance.delete(
+    return await axiosInstance.delete(
       deleteUserInvalidUsernamePath.path
     );
-    return {
-      status: response.status,
-      data: response.data
-    };
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function updateUser() {
+export async function updateUser(updateUserData) {
   try {
-    const response = await axiosInstance.put(getUserPath.path, updateUserData);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.put(getUserPath.path, updateUserData);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function userLogout() {
   try {
-    const response = await axiosInstance.get(userLogoutPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.get(userLogoutPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function addNewPet() {
+export async function addNewPet(newPetData) {
   try {
-    const response = await axiosInstance.post(addNewPetPath.path, newPetData);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.post(addNewPetPath.path, newPetData);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function updatePet() {
+export async function updatePet(editPetData) {
   try {
-    const response = await axiosInstance.post(editPetPath.path, editPetData);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.post(editPetPath.path, editPetData);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function findPetByStatus() {
   try {
-    const response = await axiosInstance.get(findByStatusPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.get(findByStatusPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function findPetById() {
   try {
-    const response = await axiosInstance.get(findPetByIdPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.get(findPetByIdPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function deletePet() {
   try {
-    const response = await axiosInstance.delete(deletePetPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    };
+    return await axiosInstance.delete(deletePetPath.path);
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
-export async function createOrder() {
+export async function createOrder(createOrderData) {
   try {
-    const response = await axiosInstance.post(
+    return await axiosInstance.post(
       createOrderPath.path,
       createOrderData
     );
-    return {
-      status: response.status,
-      data: response.data
-    };
   } catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    };
+    console.error(error);
   }
 }
 
 export async function getPurchaseOrderByPetId() {
   try {
-    const response = await axiosInstance.get(getPurchaseByPetIdPath.path);
-    return {
-      status: response.status,
-      data: response.data
-    }
-  }
-  catch (error) {
-    return {
-      error: error.response.status,
-      error: error.message
-    }
+    return await axiosInstance.get(getPurchaseByPetIdPath.path);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-export async function getInventory(){
-  try{
-    const response = await axiosInstance.get(getInventoryPath.path);
-    return{
-      status: response.status,
-      data: response.data
-    }
-  }
-  catch(error){
-    return{
-      error: error.response.status,
-      error: error.message
-    }
+export async function getInventory() {
+  try {
+    return await axiosInstance.get(getInventoryPath.path);
+  } catch (error) {
+    console.error(error);
   }
 }
-export async function deleteOrderById(){
-  try{
-    const response = await axiosInstance.delete(deleteOrderByIdPath.path);
-    return{
-      status: response.status,
-      data: response.data
-
-    }
-  }
-  catch(error){
-    return{
-      error: error.response.status,
-      error:error.message
-    }
+export async function deleteOrderById() {
+  try {
+    return await axiosInstance.delete(deleteOrderByIdPath.path);
+  } catch (error) {
+    console.error(error);
   }
 }
