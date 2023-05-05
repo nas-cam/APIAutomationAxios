@@ -10,16 +10,15 @@ describe('Delete pet', () => {
         return petId;
     });
 
-    afterEach(async () => {
-        if (petId) {
-            await deletePet()
-        }
-    });
-
     it('TC_11_1 User is able to delete pet out of the system', async () => {
         const response = await deletePet();
         expect(response.status).toBe(200);
     });
 
+    afterEach(async () => {
+        if (petId) {
+            await deletePet()
+        }
+    });
 });
 

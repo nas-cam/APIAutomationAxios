@@ -11,12 +11,6 @@ describe('Search order', () => {
         return petId;
     });
 
-    afterEach(async () => {
-        if (petId) {
-            await findPetByStatus()
-        }
-    });
-
     it('TC_10_1 User is able to find the pet by status', async () => {
         const response = await findPetByStatus();
         expect(response.status).toBe(200);
@@ -27,6 +21,12 @@ describe('Search order', () => {
         const response = await findPetById();
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, newPetData));
+    });
+    
+    afterEach(async () => {
+        if (petId) {
+            await findPetByStatus()
+        }
     });
 
 });

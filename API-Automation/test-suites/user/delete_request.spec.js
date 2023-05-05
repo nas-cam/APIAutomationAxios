@@ -11,15 +11,15 @@ describe('Delete user', function () {
         return userId;
     });
 
+    it('TC_6_1 User is able to delete user from the system', async () => {
+        const response = await deleteUserWithValidUsername();
+        expect(response.status).toBe(200);
+    });
+
     afterEach(async () => {
         if (userId) {
             await deleteUserWithValidUsername()
         }
-    });
-
-    it('TC_6_1 User is able to delete user from the system', async () => {
-        const response = await deleteUserWithValidUsername();
-        expect(response.status).toBe(200);
     });
 
 });

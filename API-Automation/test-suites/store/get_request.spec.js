@@ -11,12 +11,6 @@ describe('Search order', () => {
         return orderId;
     });
 
-    afterEach(async () => {
-        if (orderId) {
-            await getPurchaseOrderByPetId()
-        }
-    });
-
     it('TC_13_1 User is able to find purchase order by Id', async () => {
         const response = await getPurchaseOrderByPetId();
         expect(response.status).toBe(200);
@@ -27,6 +21,12 @@ describe('Search order', () => {
         const response = await getInventory();
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, createOrderData));
+    });
+
+    afterEach(async () => {
+        if (orderId) {
+            await getPurchaseOrderByPetId()
+        }
     });
 
 });

@@ -1,24 +1,19 @@
 import axiosInstance from "../support/axiosConfig.js";
 import {
   createUserPath,
- 
   createUserWithListPath,
   deleteUserInvalidUsernamePath,
   getUserPath,
- 
   userLoginPath,
   userLoginPathUsername,
   deleteUserPath,
   userLogoutPath,
   addNewPetPath,
- 
   editPetPath,
- 
   findByStatusPath,
   findPetByIdPath,
   deletePetPath,
   createOrderPath,
-  
   getPurchaseByPetIdPath,
   getInventoryPath,
   deleteOrderByIdPath
@@ -69,7 +64,7 @@ export async function loginWithUsernameOnly() {
 
 export async function deleteUserWithValidUsername() {
   try {
-    const response= await axiosInstance.delete(deleteUserPath.path);
+    const response = await axiosInstance.delete(deleteUserPath.path);
     return response;
   } catch (error) {
     console.error(error);
@@ -168,6 +163,7 @@ export async function getInventory() {
     console.error(error);
   }
 }
+
 export async function deleteOrderById() {
   try {
     return await axiosInstance.delete(deleteOrderByIdPath.path);

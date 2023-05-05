@@ -11,12 +11,6 @@ describe('User login/logout/search', () => {
         return userId;
     });
 
-    afterEach(async () => {
-        if (userId) {
-            await getUserByUsername()
-        }
-    });
-
     it('TC_5_2 User is able to perform a search with username', async () => {
         const response = await getUserByUsername();
         expect(response.status).toBe(200);
@@ -32,6 +26,13 @@ describe('User login/logout/search', () => {
         const response = await userLogout();
         expect(response.status).toBe(200);
     });
+
+    afterEach(async () => {
+        if (userId) {
+            await getUserByUsername()
+        }
+    });
+
 });
 
 

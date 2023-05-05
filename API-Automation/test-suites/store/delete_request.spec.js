@@ -10,15 +10,15 @@ describe('Delete order', () => {
         return orderId;
     });
 
+    it('TC_14_1 User is able to delete order', async () => {
+        const response = await deleteOrderById();
+        expect(response.status).toBe(200);
+    });
+
     afterEach(async () => {
         if (orderId) {
             await deleteOrderById()
         }
-    });
-
-    it('TC_14_1 User is able to delete order', async () => {
-        const response = await deleteOrderById();
-        expect(response.status).toBe(200);
     });
 
 });
