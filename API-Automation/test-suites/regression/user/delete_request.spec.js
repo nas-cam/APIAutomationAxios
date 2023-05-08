@@ -1,8 +1,7 @@
-import { AxiosError, isAxiosError } from "axios";
-import { newUserData } from "../../data/commonData.js";
-import { createUser, deleteUserWithInvalidUsername, deleteUserWithValidUsername } from "../../tasks/api-tasks.js";
+import { newUserData } from "../../../data/commonData.js";
+import { createUser, deleteUserWithValidUsername } from "../../../tasks/api-tasks.js";
 
-describe('Delete user', function () {
+describe('Delete user', ()=> {
     let userId;
 
     beforeEach(async () => {

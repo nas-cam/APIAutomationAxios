@@ -1,5 +1,5 @@
-import { createOrderData } from "../../data/commonData.js";
-import { getInventory, getPurchaseOrderByPetId, createOrder } from "../../tasks/api-tasks.js";
+import { createOrderData } from "../../../data/commonData.js";
+import { getInventory, getPurchaseOrderByPetId, createOrder } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe('Search order', () => {

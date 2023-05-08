@@ -1,5 +1,5 @@
-import { createOrderData } from "../../data/commonData.js";
-import { createOrder, deleteOrderById } from "../../tasks/api-tasks.js";
+import { createOrderData } from "../../../data/commonData.js";
+import { createOrder, deleteOrderById } from "../../../tasks/api-tasks.js";
 
 describe('Delete order', () => {
     let orderId;

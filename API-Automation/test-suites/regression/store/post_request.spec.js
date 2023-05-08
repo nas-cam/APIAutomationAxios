@@ -1,5 +1,5 @@
-import { createOrder } from "../../tasks/api-tasks.js";
-import { createOrderData } from '../../data/commonData.js';
+import { createOrder } from "../../../tasks/api-tasks.js";
+import { createOrderData } from '../../../data/commonData.js';
 import _ from "lodash";
 
 describe('Creating order', () => {

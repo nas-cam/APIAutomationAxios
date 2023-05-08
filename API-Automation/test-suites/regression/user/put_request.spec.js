@@ -1,5 +1,5 @@
-import { updateUser } from "../../tasks/api-tasks.js";
-import { updateUserData } from "../../data/commonData.js";
+import { updateUser } from "../../../tasks/api-tasks.js";
+import { updateUserData } from "../../../data/commonData.js";
 import _ from "lodash";
 
 describe("Update user", () => {
