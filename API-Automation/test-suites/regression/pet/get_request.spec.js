@@ -1,5 +1,5 @@
-import { findPetById, findPetByStatus, addNewPet } from "../../tasks/api-tasks.js";
-import { newPetData } from "../../data/commonData.js";
+import { findPetById, findPetByStatus, addNewPet } from "../../../tasks/api-tasks.js";
+import { newPetData } from "../../../data/commonData.js";
 import _ from "lodash";
 
 describe('Search order', () => {

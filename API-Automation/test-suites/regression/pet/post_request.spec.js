@@ -1,5 +1,5 @@
-import { newPetData } from "../../data/commonData.js";
-import { addNewPet } from "../../tasks/api-tasks.js";
+import { newPetData } from "../../../data/commonData.js";
+import { addNewPet } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe('Adding pet', () => {

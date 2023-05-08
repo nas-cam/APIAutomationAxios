@@ -1,5 +1,5 @@
-import { newUserData, createUserWithListData } from "../../data/commonData.js";
-import { createUser, createUserWithList } from "../../tasks/api-tasks.js";
+import { newUserData, createUserWithListData } from "../../../data/commonData.js";
+import { createUser, createUserWithList } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe("New user creation", () => {

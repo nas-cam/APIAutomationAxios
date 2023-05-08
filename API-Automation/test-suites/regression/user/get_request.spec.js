@@ -1,6 +1,6 @@
 import _ from "lodash";
-import { newUserData } from '../../data/commonData.js';
-import { getUserByUsername, userLogin, userLogout, createUser } from '../../tasks/api-tasks.js';
+import { newUserData } from '../../../data/commonData.js';
+import { getUserByUsername, userLogin, userLogout, createUser } from '../../../tasks/api-tasks.js';
 
 describe('User login/logout/search', () => {
     let userId;

@@ -1,5 +1,5 @@
-import { updatePet } from "../../tasks/api-tasks.js";
-import { editPetData } from "../../data/commonData.js"
+import { updatePet } from "../../../tasks/api-tasks.js";
+import { editPetData } from "../../../data/commonData.js"
 
 describe('Edit pet', () => {
 
