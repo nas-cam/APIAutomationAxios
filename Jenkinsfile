@@ -18,7 +18,7 @@ pipeline {
         stage('Run Smoke Tests') {
             steps {
                 script {
-                    def smokeTestCommand = 'npx jasmine ./API-Automation/test-suites/smokeTest/*/*.js'
+                    def smokeTestCommand = 'npx jasmine ./API-Automation/test-suites/*/*/*.js'
                     // Modify this command based on your project's requirements
                     def smokeTestOutput = sh(returnStdout: true, script: smokeTestCommand).trim()
                     echo smokeTestOutput
