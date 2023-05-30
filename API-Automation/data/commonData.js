@@ -1,85 +1,47 @@
 export const newUserData = {
   "id": 2,
-  "username": "Username2",
-  "firstName": "Firstname2",
-  "lastName": "Lastname2",
-  "email": "firstname@gmail.com",
-  "password": "password",
-  "phone": "123456789",
+  "username": "Everardo.Kuhic13",
+  "firstName": "Roger",
+  "lastName": "Botsford",
+  "email": "Wanda.Hickle@hotmail.com",
+  "password": "FsDkCz7lma3Hg8E",
+  "phone": "324-434-4728 x26426",
   "userStatus": 1
-}
-
-export const createUserPath = {
-  "path": "user"
-}
-
-export const getUserPath = {
-  "path": "user/Username2"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
 }
 
 export const createUserWithListData =
   [
     {
       "id": 3,
-      "username": "Username3",
-      "firstName": "Name3",
-      "lastName": "lastName3",
-      "email": "name3@gmail.com",
-      "password": "password3",
-      "phone": "45678976",
+      "username": "Adell_Cartwright76",
+      "firstName": "Esperanza",
+      "lastName": "Haag",
+      "email": "Larissa_Schinner@hotmail.com",
+      "password": "9AuTcJHSPqBGEwC",
+      "phone": "608.695.0084",
       "userStatus": 1
     },
     {
       "id": 4,
-      "username": "Username4",
-      "firstName": "Name4",
-      "lastName": "lastname4",
-      "email": "name4@gmail.com",
-      "password": "password4",
-      "phone": "0986756879",
+      "username": "Devonte.Reynolds",
+      "firstName": "Akeem",
+      "lastName": "Pfeffer",
+      "email": "Bonnie_Murray@hotmail.com",
+      "password": "6IfI8fJwVnzKaFB",
+      "phone": "522-309-9405",
       "userStatus": 0
     }
   ]
 
-export const createUserWithListPath = {
-  "path": "user/createWithList"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
-}
-
-export const userLoginPath = {
-  "path": "user/login?username=Username2&password=password"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
-}
-
-export const userLoginPathUsername = {
-  "path": "user/login?username=Username2"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
-}
-
-export const deleteUserInvalidUsernamePath = {
-  "path": "user/Userna"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
-}
-
 export const updateUserData = {
   "id": 0,
-  "username": "NekiUsername",
-  "firstName": "Eywa",
-  "lastName": "Addams",
-  "email": "eywa.addams@gmail.com",
-  "password": "password123",
-  "phone": "385666777666",
+  "username": "Kelly_Buckridge",
+  "firstName": "Macie",
+  "lastName": "Vandervort",
+  "email": "Delaney.Stark@gmail.com",
+  "password": "ak_ppX8x6vnKUGk",
+  "phone": "461-253-5720",
   "userStatus": 0
-}
-
-export const deleteUserPath = {
-  "path": "user/Username2"
-  //this shouldn't be hardcoded, there has to be the way to add this differently
-}
-
-export const userLogoutPath = {
-  "path": "user/logout"
 }
 
 export const newPetData = {
@@ -101,13 +63,6 @@ export const newPetData = {
   "status": "available"
 }
 
-export const addNewPetPath = {
-  "path": "pet"
-}
-
-export const editPetPath = {
-  "path": "pet"
-}
 
 export const editPetData = {
   "id": 5,
@@ -128,34 +83,13 @@ export const editPetData = {
   "status": "sold"
 }
 
-export const findByStatusPath = {
-  "path": "pet/findByStatus?status=available"
+export const createOrderData = {
+  "id": 1,
+  "petId": 5,
+  "quantity": 1,
+  "shipDate": "2023-04-17T13:43:45.853+0000",
+  "status": "placed",
+  "complete": true
 }
 
-export const findPetByIdPath = {
-  "path": "pet/5"
-}
-export const deletePetPath={
-  "path": "pet/5"
-}
-export const createOrderPath={
-  "path": "store/order"
-}
-export const createOrderData={
-    "id": 1,
-    "petId": 55555,
-    "quantity": 1,
-    "shipDate": "2023-04-17T13:43:45.853+0000",
-    "status": "placed",
-    "complete": true
-}
-export const getPurchaseByPetIdPath={
-  "path": "store/order/1"
-}
-export const getInventoryPath={
-  "path":"store/inventory"
-}
-export const deleteOrderByIdPath={
-  "path": "store/order/1"
-}
 

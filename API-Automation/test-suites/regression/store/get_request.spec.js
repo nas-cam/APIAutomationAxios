@@ -6,13 +6,11 @@ describe('Search order', () => {
     let orderId;
 
     beforeEach(async () => {
-        const response = await createOrder(createOrderData)
-        orderId = response.data.id;
-        return orderId;
+        await createOrder(createOrderData);
     });
 
     it('TC_13_1 User is able to find purchase order by Id', async () => {
-        const response = await getPurchaseOrderByPetId();
+        const response = await getPurchaseOrderByPetId(createOrderData.petId);
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, createOrderData));
     });
@@ -23,10 +21,5 @@ describe('Search order', () => {
         expect(_.isEqual(response.data, createOrderData));
     });
 
-    afterEach(async () => {
-        if (orderId) {
-            await getPurchaseOrderByPetId()
-        }
-    });
-
 });
+

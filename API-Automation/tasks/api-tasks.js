@@ -1,173 +1,152 @@
 import axiosInstance from "../support/axiosConfig.js";
-import {
-  createUserPath,
-  createUserWithListPath,
-  deleteUserInvalidUsernamePath,
-  getUserPath,
-  userLoginPath,
-  userLoginPathUsername,
-  deleteUserPath,
-  userLogoutPath,
-  addNewPetPath,
-  editPetPath,
-  findByStatusPath,
-  findPetByIdPath,
-  deletePetPath,
-  createOrderPath,
-  getPurchaseByPetIdPath,
-  getInventoryPath,
-  deleteOrderByIdPath
-} from "../data/commonData.js";
+import { config } from "../../config.js";
 
-export async function getUserByUsername() {
+
+export async function getUserByUsername(username) {
   try {
-    return await axiosInstance.get(getUserPath.path);
+    return await axiosInstance.get(config.user.getUser.url(username));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function createUser(newUserData) {
+export async function createUser(data) {
   try {
-    return await axiosInstance.post(createUserPath.path, newUserData);
+    return await axiosInstance.post(config.user.createUser.url, data);
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function createUserWithList(createUserWithListData) {
+export async function createUserWithList(data) {
   try {
     return await axiosInstance.post(
-      createUserWithListPath.path,
-      createUserWithListData
+      config.user.createUserWithList.url,
+      data
     );
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function userLogin() {
+export async function userLogin(username, password) {
   try {
-    return await axiosInstance.get(userLoginPath.path);
+    return await axiosInstance.get(config.user.userLogin.url(username, password));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function loginWithUsernameOnly() {
+export async function loginWithUsernameOnly(username) {
   try {
-    return await axiosInstance.userLogin(userLoginPathUsername.path);
+    return await axiosInstance.userLogin(config.user.userLoginByUsername.url(username));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function deleteUserWithValidUsername() {
+export async function deleteUserWithInvalidUsername(username) {
   try {
-    const response = await axiosInstance.delete(deleteUserPath.path);
-    return response;
+    return await axiosInstance.delete(config.user.deleteUserValidUsername.url(username));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
+  }
+}
+export async function deleteUserWithValidUsername(username) {
+  try {
+    return await axiosInstance.delete(config.user.deleteUserInvalidUsername.url(username));
+  } catch (error) {
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function deleteUserWithInvalidUsername() {
+export async function updateUser(username, data) {
   try {
-    return await axiosInstance.delete(
-      deleteUserInvalidUsernamePath.path
-    );
+    return await axiosInstance.put(config.user.updateUser.url(username), data);
   } catch (error) {
-    console.error(error);
-  }
-}
-
-export async function updateUser(updateUserData) {
-  try {
-    return await axiosInstance.put(getUserPath.path, updateUserData);
-  } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
 export async function userLogout() {
   try {
-    return await axiosInstance.get(userLogoutPath.path);
+    return await axiosInstance.get(config.user.userLogout.url);
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function addNewPet(newPetData) {
+export async function addNewPet(data) {
   try {
-    return await axiosInstance.post(addNewPetPath.path, newPetData);
+    return await axiosInstance.post(config.pet.addNewPet.url, data);
   } catch (error) {
-    console.error(error);
+    console.error(error.data.data);
   }
 }
 
-export async function updatePet(editPetData) {
+export async function updatePet(data) {
   try {
-    return await axiosInstance.post(editPetPath.path, editPetData);
+    return await axiosInstance.post(config.pet.editPet.url, data);
   } catch (error) {
-    console.error(error);
+    console.error(error.data);
   }
 }
 
-export async function findPetByStatus() {
+export async function findPetByStatus(status) {
   try {
-    return await axiosInstance.get(findByStatusPath.path);
+    return await axiosInstance.get(config.pet.findPetByStatus.url(status));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function findPetById() {
+export async function findPetById(petId) {
   try {
-    return await axiosInstance.get(findPetByIdPath.path);
+    return await axiosInstance.get(config.pet.findPetById.url(petId));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function deletePet() {
+export async function deletePet(petId) {
   try {
-    return await axiosInstance.delete(deletePetPath.path);
+    return await axiosInstance.delete(config.pet.deletePet.url(petId));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function createOrder(createOrderData) {
+export async function createOrder(data) {
   try {
     return await axiosInstance.post(
-      createOrderPath.path,
-      createOrderData
+      config.store.createOrder.url,
+      data
     );
   } catch (error) {
-    console.error(error);
+    console.error(error.data);
   }
 }
 
-export async function getPurchaseOrderByPetId() {
+export async function getPurchaseOrderByPetId(petId) {
   try {
-    return await axiosInstance.get(getPurchaseByPetIdPath.path);
+    return await axiosInstance.get(config.store.getPurchaseByPetId.url(petId));
   } catch (error) {
-    console.error(error);
+    console.error(error.data);
   }
 }
 
 export async function getInventory() {
   try {
-    return await axiosInstance.get(getInventoryPath.path);
+    return await axiosInstance.get(config.store.getInventory.url);
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }
 
-export async function deleteOrderById() {
+export async function deleteOrderById(orderId) {
   try {
-    return await axiosInstance.delete(deleteOrderByIdPath.path);
+    return await axiosInstance.delete(config.store.deleteOrderById.url(orderId));
   } catch (error) {
-    console.error(error);
+    console.error("Error message: ", error.response.data.message);
   }
 }

@@ -1,0 +1,49 @@
+{
+  "spec_dir": [
+    "./API-Automation/test-suites/**/**/*.js",
+    "./API-Automation/test-suites/global.spec.js"
+  ],
+  "jasmine": {
+    "spec_files": [
+      "./API-Automation/test-suites/*.js",
+      " ./API-Automation/test-suites/regression/pet/*.js",
+      " ./API-Automation/test-suites/regression/store/*.js",
+      " ./API-Automation/test-suites/regression/user/*.js",
+      " ./API-Automation/test-suites/smokeTest/smoke-test/*.js"
+    ],
+    "helpers": [
+      "node_modules/jasmine-spec-reporter/dist/jasmine-spec-reporter.css",
+      "node_modules/jasmine-spec-reporter/dist/jasmine-spec-reporter.js"
+    ]
+  },
+  "reporters": [
+    {
+      "name": "jasmine-spec-reporter",
+      "options": {
+        "displayStacktrace": "summary",
+        "displayPendingSummary": false,
+        "displayFailuresSummary": true,
+        "displaySuccessfulSpec": true,
+        "displayFailedSpec": true,
+        "displayPendingSpec": false,
+        "displaySpecDuration": true,
+        "displaySuiteNumber": true,
+        "colors": {
+          "success": "green",
+          "failure": "red",
+          "pending": "yellow"
+        },
+        "prefixes": {
+          "success": "✓ ",
+          "failure": "✗ ",
+          "pending": "* "
+        },
+        "customProcessors": []
+      }
+    }
+  ],
+  "env": {
+    "stopSpecOnExpectationFailure": false,
+    "random": true
+  }
+}

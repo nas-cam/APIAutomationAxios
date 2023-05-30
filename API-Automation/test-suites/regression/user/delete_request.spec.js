@@ -7,18 +7,11 @@ describe('Delete user', ()=> {
     beforeEach(async () => {
         const response = await createUser(newUserData)
         userId = response.data.id;
-        return userId;
     });
 
     it('TC_6_1 User is able to delete user from the system', async () => {
-        const response = await deleteUserWithValidUsername();
+        const response = await deleteUserWithValidUsername(newUserData.username);
         expect(response.status).toBe(200);
-    });
-
-    afterEach(async () => {
-        if (userId) {
-            await deleteUserWithValidUsername()
-        }
     });
 
 });
