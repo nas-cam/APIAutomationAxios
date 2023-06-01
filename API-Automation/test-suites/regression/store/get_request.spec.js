@@ -1,10 +1,9 @@
 import { createOrderData } from "../../../data/commonData.js";
-import { getInventory, getPurchaseOrderByPetId, createOrder } from "../../../tasks/api-tasks.js";
+import { getInventory, getPurchaseOrderByPetId, createOrder, deleteOrderById } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe('Search order', () => {
-    let orderId;
-
+   
     beforeEach(async () => {
         await createOrder(createOrderData);
     });
@@ -20,6 +19,9 @@ describe('Search order', () => {
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, createOrderData));
     });
+    afterEach(async () => {
+        await deleteOrderById(createOrderData.petId);
+    })
 
 });
 

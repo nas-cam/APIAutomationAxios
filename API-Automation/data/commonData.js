@@ -85,7 +85,7 @@ export const editPetData = {
 
 export const createOrderData = {
   "id": 1,
-  "petId": 5,
+  "petId": 1,
   "quantity": 1,
   "shipDate": "2023-04-17T13:43:45.853+0000",
   "status": "placed",

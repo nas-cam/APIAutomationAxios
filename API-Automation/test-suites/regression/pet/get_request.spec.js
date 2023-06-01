@@ -1,4 +1,4 @@
-import { findPetById, findPetByStatus, addNewPet } from "../../../tasks/api-tasks.js";
+import { findPetById, findPetByStatus, addNewPet, deletePet } from "../../../tasks/api-tasks.js";
 import { newPetData } from "../../../data/commonData.js";
 import _ from "lodash";
 
@@ -21,12 +21,8 @@ describe('Search order', () => {
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, newPetData));
     });
-
     afterEach(async () => {
-        if (petId) {
-           // await deletePet(petId);
-           //error deletePet not defined
-        }
+        await deletePet(newPetData.id);
     });
 
 });

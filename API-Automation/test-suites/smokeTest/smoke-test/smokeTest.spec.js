@@ -1,4 +1,4 @@
-import { createUser, userLogin, addNewPet, createOrder, userLogout } from "../../../tasks/api-tasks.js";
+import { createUser, userLogin, addNewPet, createOrder, userLogout, deleteUserWithValidUsername, deleteOrderById, deletePet } from "../../../tasks/api-tasks.js";
 import { newUserData, newPetData, createOrderData } from "../../../data/commonData.js";
 import _ from "lodash"
 
@@ -23,6 +23,10 @@ describe('Smoke test', () => {
         const responselogout = await userLogout();
         expect(responselogout.status).toBe(200);
     });
-
+    afterEach(async () => {
+        await deleteUserWithValidUsername(newUserData.username);
+        await deletePet(newPetData.id);
+        await deleteOrderById(createOrderData.id);
+    })
 });
 

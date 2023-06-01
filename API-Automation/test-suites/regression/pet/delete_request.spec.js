@@ -1,5 +1,5 @@
 import { newPetData } from "../../../data/commonData.js";
-import {addNewPet, deletePet} from "../../../tasks/api-tasks.js";
+import { addNewPet, deletePet } from "../../../tasks/api-tasks.js";
 
 describe('Delete pet', () => {
     let petId;

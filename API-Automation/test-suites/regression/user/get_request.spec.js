@@ -1,13 +1,12 @@
 import _ from "lodash";
 import { newUserData } from '../../../data/commonData.js';
-import { getUserByUsername, userLogin, userLogout, createUser } from '../../../tasks/api-tasks.js';
+import { getUserByUsername, userLogin, userLogout, createUser, deleteUserWithValidUsername } from '../../../tasks/api-tasks.js';
 
 describe('User login/logout/search', () => {
     let userId;
 
     beforeEach(async () => {
-        const response = await createUser(newUserData)
-        userId = response.data.id;
+       await createUser(newUserData);
     });
 
     it('TC_5_2 User is able to perform a search with username', async () => {
@@ -25,6 +24,9 @@ describe('User login/logout/search', () => {
         const response = await userLogout();
         expect(response.status).toBe(200);
     });
+    afterEach(async () => {
+        await deleteUserWithValidUsername(newUserData.username);
+    })
 
 });
 
