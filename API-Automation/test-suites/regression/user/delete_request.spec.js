@@ -1,24 +1,15 @@
 import { newUserData } from "../../../data/commonData.js";
 import { createUser, deleteUserWithValidUsername } from "../../../tasks/api-tasks.js";
 
-describe('Delete user', ()=> {
-    let userId;
+describe('Delete user', () => {
 
     beforeEach(async () => {
-        const response = await createUser(newUserData)
-        userId = response.data.id;
-        return userId;
+        await createUser(newUserData);
     });
 
     it('TC_6_1 User is able to delete user from the system', async () => {
-        const response = await deleteUserWithValidUsername();
+        const response = await deleteUserWithValidUsername(newUserData.username);
         expect(response.status).toBe(200);
-    });
-
-    afterEach(async () => {
-        if (userId) {
-            await deleteUserWithValidUsername()
-        }
     });
 
 });

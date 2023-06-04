@@ -7,18 +7,11 @@ describe('Delete order', () => {
     beforeEach(async () => {
         const response = await createOrder(createOrderData)
         orderId = response.data.id;
-        return orderId;
     });
 
     it('TC_14_1 User is able to delete order', async () => {
-        const response = await deleteOrderById();
+        const response = await deleteOrderById(orderId);
         expect(response.status).toBe(200);
-    });
-
-    afterEach(async () => {
-        if (orderId) {
-            await deleteOrderById()
-        }
     });
 
 });

@@ -1,5 +1,5 @@
 import { newUserData, createUserWithListData } from "../../../data/commonData.js";
-import { createUser, createUserWithList } from "../../../tasks/api-tasks.js";
+import { createUser, createUserWithList, deleteUserWithValidUsername } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe("New user creation", () => {
@@ -15,6 +15,8 @@ describe("New user creation", () => {
     expect(response.status).toBe(200);
     expect(_.isEqual(response.data, createUserWithListData));
   });
-
+  afterEach(async () => {
+    await deleteUserWithValidUsername(newUserData.username);
+  })
 });
 

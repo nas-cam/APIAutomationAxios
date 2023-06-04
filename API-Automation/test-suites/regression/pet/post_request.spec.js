@@ -1,5 +1,5 @@
 import { newPetData } from "../../../data/commonData.js";
-import { addNewPet } from "../../../tasks/api-tasks.js";
+import { addNewPet, deletePet } from "../../../tasks/api-tasks.js";
 import _ from "lodash";
 
 describe('Adding pet', () => {
@@ -8,6 +8,9 @@ describe('Adding pet', () => {
         const response = await addNewPet(newPetData);
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, newPetData));
+    });
+    afterEach(async () => {
+        await deletePet(newPetData.id);
     });
 });
 

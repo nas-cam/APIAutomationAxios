@@ -1,4 +1,4 @@
-import { createOrder } from "../../../tasks/api-tasks.js";
+import { createOrder, deleteOrderById } from "../../../tasks/api-tasks.js";
 import { createOrderData } from '../../../data/commonData.js';
 import _ from "lodash";
 
@@ -9,5 +9,9 @@ describe('Creating order', () => {
         expect(response.status).toBe(200);
         expect(_.isEqual(response.data, createOrderData));
     });
+
+    afterEach(async () => {
+        await deleteOrderById(createOrderData.petId);
+    })
 });
 
